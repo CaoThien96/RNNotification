@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "16.13.1",
     "react-native": "0.63.3",
-    "react-native-notifications": "^3.4.0"
+    "react-native-notifications": "^3.4.0",
+    "react-native-firebase": "5.5.x"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

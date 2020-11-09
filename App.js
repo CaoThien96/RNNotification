@@ -23,8 +23,8 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+import Notification from './Components/Notifications'
+const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Notification;
