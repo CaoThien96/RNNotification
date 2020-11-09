@@ -23,11 +23,23 @@ export default class NotificationsExampleApp extends Component {
     registerNotificationEvents() {
         Notifications.events().registerNotificationReceivedForeground((notification, completion) => {
             console.log('registerNotificationReceivedForeground', notification)
-            this.setState({
-                notifications: [...this.state.notifications, notification]
+            const newNotification = {
+                title: notification.payload['gcm.notification.title'],
+                body: notification.payload['gcm.notification.body'],
+                payload: {}
+            }
+            Notifications.postLocalNotification({
+                body: notification.payload['gcm.notification.body'],
+                title: notification.payload['gcm.notification.title'],
+                sound: 'chime.aiff',
+                category: 'SOME_CATEGORY',
+                link: 'localNotificationLink',
             });
+            // this.setState({
+            //     notifications: [...this.state.notifications, newNotification]
+            // });
 
-            completion({ alert: notification.payload.showAlert, sound: false, badge: false });
+            completion({ alert: false, sound: false, badge: false });
         });
 
         Notifications.events().registerNotificationOpened((notification, completion) => {
